@@ -1,0 +1,94 @@
+Dissertativa sobre uso básico de POO
+Um zoológico está desenvolvendo um sistema básico para registrar animais. Todos os 
+animais têm um nome, uma espécie e uma idade. Além disso, há animais classificados 
+como animais selvagens, que possuem um habitat natural como característica adicional.
+Para tornar o sistema mais organizado e reutilizável, a equipe utilizou conceitos de 
+Programação Orientada a Objetos (POO), como herança e reutilização de métodos.
+Veja a implementação inicial abaixo:
+// Classe base
+class Animal {
+ constructor(nome, especie, idade) {
+ this.nome = nome;
+ this.especie = especie;
+ this.idade = idade;
+ }
+ exibirInformacoes() {
+ return `Nome: ${this.nome}, Espécie: ${this.especie}, Idade: ${this.idade}`;
+ }
+}
+// Classe derivada
+class AnimalSelvagem extends Animal {
+ constructor(nome, especie, idade, habitat) {
+ super(nome, especie, idade);
+ this.habitat = habitat;
+ }
+ exibirHabitat() {
+ return `Habitat natural: ${this.habitat}`;
+ }
+}
+// Instâncias e retornos
+const animal1 = new Animal("Tico", "Macaco", 4);
+const animal2 = new AnimalSelvagem("Nala", "Leoa", 5, "Savana Africana");
+console.log(animal1.exibirInformacoes());
+console.log(animal2.exibirInformacoes());
+console.log(animal2.exibirHabitat());
+Perguntas Dissertativas
+1. Estrutura de Classes e Objetos
+a) Quais atributos são definidos na classe Animal?
+// nome, especie e idade
+b) Como a classe AnimalSelvagem amplia a estrutura de Animal?
+// Usando o comando extends e super
+2. Herança
+c) O que significa a linha class AnimalSelvagem extends Animal?
+// A criação de uma nova classe usando as informações herdadas da classe passada Animal
+d) O que acontece internamente quando usamos o comando super(...) dentro do 
+construtor da subclasse?
+// O comando super especifica quais atributos estarão sendo herdados da classe especificada em extends
+3. Instanciação
+e) O que ocorre passo a passo quando o comando new AnimalSelvagem("Nala", 
+"Leoa", 5, "Savana Africana") é executado?
+// Usará os atributos this.nome, this.especie, this.idade e this.habitat como meios de susbtituir as
+// informações que foram repassadas dentro do comando, sendo elas o nome Nala, a especie Leoa, a idade 5
+// e habitat selvagem.
+f) Qual a diferença entre a criação dos objetos animal1 e animal2?
+// A diferença pode ser identificada na estrutura dos comandos, onde animal2 faz o uso da classe base animal
+// e junto constructor de um novo atributo, sendo ele o habitat, o que mais tarde é usado em animal2 para
+// informar respectivamente o habitat do animal em questão.
+4. Acesso a Métodos
+g) Por que o método exibirInformacoes() pode ser utilizado tanto em animal1 quanto 
+em animal2?
+// Isto porque ele possui/requer atributos que ambas as classes possuem em comum.
+h) O método exibirHabitat() está disponível em animal1? Justifique sua resposta.
+// Não esta disponivel, isto porquê a instancia animal1 não oferece informações do possivel uso da classe
+// animal selvagem, logo o sistema retornará o codigo com a estrutura da classe Animal, a que respectivamente
+// faz uso apenas das informações oferecidas em animal1
+5. Reutilização de Código
+i) Como a herança contribui para evitar duplicação de código nesse exemplo?
+// A herança economiza linhas de codigo e evita a duplicação do mesmo de modo que ela fará uso da classe
+// mais viavel/apropriada considerando as informações dadas a ele, sem a necessidade de reescrever todos
+// os mesmos atributos para todas as possiveis outras classes.
+j) Se fosse necessário adicionar um novo comportamento a todos os animais, como 
+"dormir()", em qual classe ele deveria ser implementado? Por quê?
+// Como a questão especifica a "todos" os animais, logo é necessario implementar na classe base ( animal )
+// para todas as demais classes poderem fazer uso do atributo via constructor.
+6. Retorno e Impressão
+k) Qual é a saída exata exibida no console ao executar o código apresentado?
+// Nome: Tico, Especie: Macaco, Idade: 4
+// Nome: Nala, Especie: Leoa, Idade: 5, Habitat: Savana Africana
+l) O que aconteceria se fosse removida a linha super(nome, especie, idade) do 
+construtor da classe AnimalSelvagem?
+// Constará um erro, isto porquê nao possui meios o suficiente para alocar as informações em new
+7. Prática de Extensão
+m) Crie uma nova subclasse chamada AnimalDomestico, que herda de Animal e inclui 
+um novo atributo chamado nomeDono.
+class AnimalDomestico extends Animal {
+	constructor(nome, especie, idade, nomeDono) {
+		super(nome, especie, idade);
+		this.nomeDono = nomeDono;
+	}
+}
+
+n) Implemente um método chamado exibirDono() que retorne: "Dono de [nome do 
+animal]: [nome do dono]"
+exibirNomeDono(){
+	return`Dono de ${nome}: ${nomeDono}`;
