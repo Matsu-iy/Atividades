@@ -69,3 +69,9 @@ void loop() {
   delay(2000);
 }
 ```
+
+# avaliações
+
+Felipe Viana - cumpriu com os 3 requerimentos, sendo eles o código, a construção fisica, mas nao apresentou outros componentes para obter assim a nota maxima, assim dou nota 9"
+
+Vitor Lucena - "Bem organizado e codigo funcionando com o que foi pedido na ponderada. nao foi colocado nada a mais para tirar nota maior, 9"
